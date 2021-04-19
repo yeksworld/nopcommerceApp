@@ -9,9 +9,9 @@ from utilities.customLogger import LogGen
 
 
 class Test_001_Login:
-    baseURL = ReadConfig.getApplicationURL
-    username = ReadConfig.getUseremail
-    password = ReadConfig.getPassword
+    baseURL = ReadConfig.getApplicationURL()
+    username = ReadConfig.getUseremail()
+    password = ReadConfig.getPassword()
 
     logger=LogGen.loggen()
 
@@ -21,8 +21,9 @@ class Test_001_Login:
         self.driver = setup
         self.driver.get(self.baseURL)
         act_title = self.driver.title
-        if act_title == "Your store. Login23":
+        if act_title == "Your store. Login":
             assert True
+            self.driver.close()
         else:
             self.driver.save_screenshot(".\\Screenshots\\"+"test_homePageTitle.png")
             self.driver.close()
@@ -39,7 +40,7 @@ class Test_001_Login:
         time.sleep(2)
         self.lp.clickLogin()
         act_title = self.driver.title
-        if act_title == "Dashboard / nopCommerce administration23":
+        if act_title == "Dashboard / nopCommerce administration":
             assert True
             self.logger.info("****************** Login test is passed **************")
             self.driver.close()
