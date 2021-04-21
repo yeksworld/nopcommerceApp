@@ -1,5 +1,6 @@
 import time
 
+import pandas as pd
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -10,6 +11,8 @@ from utilities import XLUtils
 
 
 class Test_002_DDT_Login:
+   # df = pd.read_excel(r'C:\Users\yunus\OneDrive\Belgeler\Downloads\LoginData.xlsx',sheet_name='Sheet1')
+   # print(df)
     baseURL = ReadConfig.getApplicationURL()
     path = ".//TestData/LoginData.xlsx"
     username = ReadConfig.getUseremail()
@@ -71,4 +74,4 @@ class Test_002_DDT_Login:
             assert False
 
         self.logger.info("**** End of Login DDT Test ****")
-        self.logger.info("**** Completed TC_LoginDDT_002 ****")
+        self.logger.info("**** Completed TC_LoginDDT_002 ****");
